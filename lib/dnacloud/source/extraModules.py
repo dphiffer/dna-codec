@@ -20,7 +20,7 @@ import time
 import csv
 import sys
 import HuffmanDictionary
-import wx
+#import wx
 #import psutil
 import thread
 import os
