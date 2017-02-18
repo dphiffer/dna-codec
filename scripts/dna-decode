@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+# -*-python-*-
+
+import os, sys
+import logging, optparse
+from shutil import copyfile
+
+if __name__ == '__main__':
+
+	base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+	opt_parser = optparse.OptionParser()
+	opt_parser.add_option('-i', '--input', dest='input', action='store', default=None, help='Input file to encode')
+	opt_parser.add_option('-o', '--output', dest='output', action='store', default=None, help='Output path save base pairs')
+	opt_parser.add_option('-v', '--verbose', dest='verbose', action='store_true', default=False, help='Be chatty (default is false)')
+	(options, args) = opt_parser.parse_args()
+
+	if options.verbose:
+		logging.basicConfig(level=logging.DEBUG)
+	else:
+		logging.basicConfig(level=logging.WARNING)
+
+	if options.input:
+		input_path = options.input
+		logging.debug("Decoding input file %s" % input_path)
+	else:
+		input_path = base_dir + "/.temp/input"
+		logging.debug("Reading from STDIN, saving temp file to %s" % input_path)
+		input_file = open(input_path, "w")
+		input_file.write(sys.stdin.read())
+		input_file.close()
+
+	if options.output:
+		output_path = options.output
+		logging.debug("Saving to output file %s" % output_path)
+	else:
+		output_path = base_dir + "/.temp/output"
+		logging.debug("Outputting to STDOUT, saving temp file to %s" % output_path)	
+
+	dnacloud_dir = base_dir + "/lib/dnacloud/source"
+	logging.debug("Adding %s to the sys.path" % dnacloud_dir)
+	sys.path.append(dnacloud_dir)
+
+	import decode
+
+	decode.degenrateDNAString(input_path, output_path, base_dir)
+	if not os.path.exists(output_path):
+		logging.error("Output file %s not found" % output_path)
+		sys.exit()
+	
+	if not options.output:
+		logging.debug("Outputting decoded data to STDOUT")
+		f = open(output_path, "r") 
+		print f.read()
+		f.close()
