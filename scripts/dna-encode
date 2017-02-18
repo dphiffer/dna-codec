@@ -28,4 +28,11 @@ if __name__ == '__main__':
 
 	import encode
 
-	
+	encode.genDNAString(options.input, base_dir)
+	dna_path = base_dir + "/.temp/dnaString.txt"
+	if not os.path.exists(dna_path):
+		logging.error("DNA string output not found.")
+		sys.exit()
+
+	f = open(dna_path, "r") 
+	print f.read() 
