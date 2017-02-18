@@ -10,8 +10,8 @@ if __name__ == '__main__':
 	base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 	opt_parser = optparse.OptionParser()
-	opt_parser.add_option('-i', '--input', dest='input', action='store', default=None, help='Input file to encode')
-	opt_parser.add_option('-o', '--output', dest='output', action='store', default=None, help='Output path save base pairs')
+	opt_parser.add_option('-i', '--input', dest='input', action='store', default=None, help='Input file to decode')
+	opt_parser.add_option('-o', '--output', dest='output', action='store', default=None, help='Output path save decoded data')
 	opt_parser.add_option('-v', '--verbose', dest='verbose', action='store_true', default=False, help='Be chatty (default is false)')
 	(options, args) = opt_parser.parse_args()
 
