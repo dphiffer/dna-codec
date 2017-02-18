@@ -22,4 +22,4 @@ cat [filename] | dna-decode --output [output]
 
 ## Dependencies
 
-Uses the bundled [DNACloud](https://github.com/shalinshah1993/DNACloud), by [Shalin Shah](http://people.duke.edu/~sns37/)
+Uses [Python 2.7](https://www.python.org/downloads/) and the bundled [DNACloud](https://github.com/shalinshah1993/DNACloud), by [Shalin Shah](http://people.duke.edu/~sns37/)
