@@ -4,7 +4,7 @@ Encoding and decoding data into DNA base pairs
 
 ## Encode process
 
-`scripts/dna-encode` takes an input file (or reads from `STDIN`) and encodes the data as a DNA base pairs.
+`scripts/dna-encode` takes an input file (or reads from `STDIN`) and encodes the data as [DNA base pairs](https://en.wikipedia.org/wiki/Base_pair).
 
 ```
 dna-encode --verbose --input [filename]
