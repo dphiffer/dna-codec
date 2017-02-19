@@ -23,3 +23,7 @@ cat [filename] | dna-decode --output [output]
 ## Dependencies
 
 Uses [Python 2.7](https://www.python.org/downloads/) and the bundled [DNACloud](https://github.com/shalinshah1993/DNACloud), by [Shalin Shah](http://people.duke.edu/~sns37/)
+
+## References
+
+Shah, Shalin, Dixita Limbachiya, and Manish K. Gupta. "DNACloud: A Potential Tool for storing Big Data on DNA." [arXiv preprint arXiv:1310.6992](https://arxiv.org/abs/1310.6992) (2013).
