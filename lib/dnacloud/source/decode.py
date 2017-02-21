@@ -45,19 +45,21 @@ def decode(readPath,savePath):
 	
 def degenrateDNAString(readPath,savePath,WORKSPACE_PATH):
 	try:
-		xtemp = readPath.split(".")
-		if "win" in sys.platform and not 'darwin' in sys.platform:
-			dnaFile = open(WORKSPACE_PATH + '\.temp\dnaString.txt',"rb")
-			fileSize = os.path.getsize(WORKSPACE_PATH + '\.temp\dnaString.txt')
-		elif "linux" in sys.platform or 'darwin' in sys.platform:
-			dnaFile = open(WORKSPACE_PATH + '/.temp/dnaString.txt',"rb")
-			fileSize = os.path.getsize(WORKSPACE_PATH + '/.temp/dnaString.txt')
+		#xtemp = readPath.split(".")
+		#if "win" in sys.platform and not 'darwin' in sys.platform:
+		#	dnaFile = open(WORKSPACE_PATH + '\.temp\dnaString.txt',"rb")
+		#	fileSize = os.path.getsize(WORKSPACE_PATH + '\.temp\dnaString.txt')
+		#elif "linux" in sys.platform or 'darwin' in sys.platform:
+		#	print(WORKSPACE_PATH + '/.temp/dnaString.txt')
+		#	dnaFile = open(WORKSPACE_PATH + '/.temp/dnaString.txt',"rb")
+		#	fileSize = os.path.getsize(WORKSPACE_PATH + '/.temp/dnaString.txt')
 		#decodedFile = file(PATH + '\\..\\decodedFiles\\decode','wb')
-		if len(xtemp) == 3:
-			decodedFile = file(savePath+ "." + xtemp[1],'wb')
-		else:
-                        decodedFile = file(savePath,'wb')
-		
+		#if len(xtemp) == 3:
+		#	decodedFile = file(savePath+ "." + xtemp[1],'wb')
+		#else:
+		dnaFile = open(readPath, "rb")
+		fileSize = os.path.getsize(readPath)
+		decodedFile = file(savePath,'wb')
 		
 		dnaFile.seek(fileSize - 21,0)
 		temp = dnaFile.read()
